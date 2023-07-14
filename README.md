@@ -1,7 +1,7 @@
 # magnetic-north
 Is magnetic north constant?
 April 11, 2023
-The original question actually was about magnetic north.  I got distracted by the pendulums and put it off.  Now I have time and it is back on schedule.  I have finished the structure for the big compass needle.  I wanted to put it on a needle like a typical compass pointed, but this does not look like it will work.  I have it suspended the magnetic needle on a string and feel pretty comfortable with it.  The structure has three arches and is quite stable.  It is entirely made of plywood and glue;  no ferrous metal.
+The original question actually was about magnetic north.  I got distracted by the pendulums and put it off.  Now I have time and it is back on schedule.  I have finished the structure for the big compass needle.  I wanted to put it on a needle like a typical compass, but this does not look like it will work.  I have it suspended the magnetic needle on a string and feel pretty comfortable with it.  The structure has three arches and is quite stable.  It is entirely made of plywood and glue;  no ferrous metal.
 The little mirror sits in a little cradle that attaches firmly to the magnetic needle.  It can be adjusted and then made secure.
 The laser on the survey tool seems fine.  My prototype is giving a split image off the mirror, but this is a practice mirror;  the front surface mirror is safely in storage.
 The software will be C++ with Arduino.  It will not be a trivial project, but less difficult than the others.  I have a Mega board that has 30 inputs.  This means the detector will be 30 inputs.  This should be enough.  And I do not need a reading every 20 seconds.  Every hour, for example should be plenty.
@@ -82,3 +82,14 @@ An oblique angle will weaken the laser.  How much can I push this?
 Janet’s laptop is set for Arduino and Python, so that is cool.
 The C++ and the python are easier than the path I have already traveled.  Definitely not harder.
 
+https://youtu.be/zvrcrxT9n8o
+july 14 2023
+I have the laser complete to a finished prototype.  I am taking data.  I have the laser on an arbitrary scale; a piece of graph ppaper.
+One, two three are about centimeters.  And these are divided into ten.
+I perturbation puff is just a turkey baster, but it works great.  I take a reading and give it a puff.  I take a reading and give it a puff etc.  
+The reproducibility is quite good.  At least a tenth, like 2.2.  I think half of a sig fig would be fine.
+But this is strange.  i c0me back eight hours later and the reading has changed!
+This makes it look like I need more readings than just two a week.  What is going on?  I must be overlooking something.
+I need a 2d array of 0s and 1s every 15 minutes.
+I am 'networking' for help with this project.  TCD2557F linear array sensor.  This is a lon narrow opticlal sensor.  maybe 8 pixels by 300 pixels.
+quarter of an inch by one and a half inches.  It is pretty clear that Arduino is not suited for this.
