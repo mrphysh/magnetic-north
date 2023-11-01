@@ -1,0 +1,166 @@
+//This is the first prototype...   about 40 ldrs\
+//This is input mega 22 through 53
+
+#define ldrPin53 53
+#define ldrPin52 52
+#define ldrPin51 51
+#define ldrPin50 50
+#define ldrPin49 49
+#define ldrPin48 48
+
+
+
+#define ldrPin27 27
+#define ldrPin26 26
+#define ldrPin25 25
+#define ldrPin24 24
+#define ldrPin23 23
+#define ldrPin22 22
+#define relayPin  8
+#define puffPin  9
+/*
+*/
+boolean ldrstatus53 = 0; boolean ldrstatus52 = 0; boolean ldrstatus51 = 0; boolean ldrstatus50 = 0; boolean ldrstatus49 = 0; boolean ldrstatus48 = 0;
+boolean ldrstatus47 = 0; boolean ldrstatus46 = 0; boolean ldrstatus45 = 0; boolean ldrstatus44 = 0; boolean ldrstatus43 = 0; boolean ldrstatus42 = 0;
+boolean ldrstatus41 = 0; boolean ldrstatus40 = 0; boolean ldrstatus39 = 0; boolean ldrstatus38 = 0; boolean ldrstatus37 = 0; boolean ldrstatus36 = 0;
+boolean ldrstatus35 = 0; boolean ldrstatus34 = 0; boolean ldrstatus33 = 0; boolean ldrstatus32 = 0; boolean ldrstatus31 = 0; boolean ldrstatus30 = 0;
+boolean ldrstatus29 = 0; boolean ldrstatus28 = 0; boolean ldrstatus27 = 0; boolean ldrstatus26 = 0; boolean ldrstatus25 = 0; boolean ldrstatus24 = 0;
+boolean ldrstatus23 = 0; boolean ldrstatus22 = 0;
+//boolean relayStatus = 1;    //  no this sets the state.  high should be off!!
+//  THE RELAXED STATE FOR THE RELAY SEEMS TO BE HIGH
+//  the relay can go either way
+//boolean puffStatus = 0;// or this
+/*ldrstatus21 = 0;boolean ldrstatus20 = 0;boolean ldrstatus19 = 0;boolean ldrstatus18 = 0;
+  boolean ldrstatus17 = 0;boolean ldrstatus16 = 0;boolean ldrstatus15 = 0;boolean ldrstatus14 = 0;boolean ldrstatus13 = 0;boolean ldrstatus12 = 0;
+*/
+
+
+
+float loc_53 = 181.12;   float loc_52 = 179.04; float loc_51 = 176.96; float loc_50 = 174.88; float loc_49 = 172.8; float loc_48 = 170.72;
+float loc_47 = 168.64;   float loc_46 = 166.56; float loc_45 = 164.48; float loc_44 = 162.4; float loc_43 = 160.32; float loc_42 = 158.24;
+float loc_41 = 156.16;   float loc_40 = 154.04; float loc_39 = 152.00; float loc_38 = 149.92; float loc_37 = 147.84; float loc_36 = 145.76;
+float loc_35 = 143.68;   float loc_34 = 141.6; float loc_33 = 139.52; float loc_32 = 137.44; float loc_31 = 135.36; float loc_30 = 133.28;
+float loc_29 = 131.2;   float loc_28 = 129.12; float loc_27 = 127.04; float loc_26 = 124.96; float loc_25 = 122.88; float loc_24 = 120.8;
+float loc_23 = 118.72;   float loc_22 = 116.64;
+
+/*float loc_21 = 7.9;float loc_20 = 8.5;float loc_19 = 9.7;float loc_18 = 2211.3;
+  float loc_17 = 3.4;   float loc_16 = 6.5; float loc_15 = 7.9;float loc_14 = 8.5;float loc_13 = 9.7;float loc_12 = 2211.3;
+*/
+int megaInputNumber = 1;
+float numberForPython = 16.7;
+int i = 0;
+
+long now_time = 340000 ; //  just pick a value
+long old_time  =  2000;  //  must be lower than 340000
+
+
+void setup()
+{
+  pinMode (ldrPin53,   INPUT); pinMode (ldrPin52, INPUT);  pinMode (ldrPin51, INPUT);  pinMode (ldrPin50, INPUT);  pinMode (ldrPin49, INPUT);  pinMode (ldrPin48, INPUT);
+  pinMode (ldrPin47,   INPUT); pinMode (ldrPin46, INPUT);  pinMode (ldrPin45, INPUT);  pinMode (ldrPin44, INPUT);  pinMode (ldrPin43, INPUT);  pinMode (ldrPin42, INPUT);
+  pinMode (ldrPin41,   INPUT); pinMode (ldrPin40, INPUT);  pinMode (ldrPin39, INPUT);  pinMode (ldrPin38, INPUT);  pinMode (ldrPin37, INPUT);  pinMode (ldrPin36, INPUT);
+  pinMode (ldrPin35,   INPUT); pinMode (ldrPin34, INPUT);  pinMode (ldrPin33, INPUT);  pinMode (ldrPin32, INPUT);  pinMode (ldrPin31, INPUT);  pinMode (ldrPin30, INPUT);
+  pinMode (ldrPin29,   INPUT); pinMode (ldrPin28, INPUT);  pinMode (ldrPin27, INPUT);  pinMode (ldrPin26, INPUT);  pinMode (ldrPin25, INPUT);  pinMode (ldrPin24, INPUT);
+  pinMode (ldrPin23,   INPUT); pinMode (ldrPin22, INPUT);
+  pinMode (relayPin, OUTPUT);
+  pinMode (puffPin, OUTPUT);
+
+  /*
+    pinMode (ldrPin49,INPUT);  pinMode (ldrPin47,INPUT);  pinMode (ldrPin45,INPUT);  pinMode (ldrPin43,INPUT);
+    pinMode (ldrPin53,   INPUT);pinMode (ldrPin51,INPUT);  pinMode (ldrPin49,INPUT);  pinMode (ldrPin47,INPUT);  pinMode (ldrPin45,INPUT);  pinMode (ldrPin43,INPUT);
+  */
+  digitalWrite (relayPin, HIGH);   ///  Laser off  HIGH is off
+  digitalWrite (puffPin, HIGH); //  perturbation thing
+  Serial.begin(9600);
+  Serial.println("hello world");
+  numberForPython = 88777;
+}
+
+void loop()    {
+  if (now_time > old_time) {
+
+
+    digitalWrite (relayPin, LOW);    //  low is on ..  green light on   turn on the laser
+    //the green light should come on  (module JQ3CF- 05vD
+
+
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (10);
+    ldrstatus53 = digitalRead (ldrPin53);
+    if (ldrstatus53 == 1) {
+      numberForPython = loc_53;
+      megaInputNumber = 53;
+    }
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (10);
+    ldrstatus52 = digitalRead (ldrPin52);
+    if (ldrstatus52 == 1) {
+      numberForPython = loc_52;
+      megaInputNumber = 52;
+    }
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (10);
+    ldrstatus51 = digitalRead (ldrPin51);
+    if (ldrstatus51 == 1) {
+      numberForPython = loc_51;
+      megaInputNumber = 51;
+    }
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (10);
+    ldrstatus50 = digitalRead (ldrPin50);
+    if (ldrstatus50 == 1) {
+      numberForPython = loc_50;
+      megaInputNumber = 50;
+    }
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (10);
+    ldrstatus49 = digitalRead (ldrPin49);
+      megaInputNumber = 25;
+    }
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (10);
+    ldrstatus24 = digitalRead (ldrPin24);
+    if (ldrstatus24 == 1) {
+      numberForPython = loc_24;
+      megaInputNumber = 24;
+    }
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (10);
+    ldrstatus23 = digitalRead (ldrPin23);
+    if (ldrstatus23 == 1) {
+      numberForPython = loc_23;
+      megaInputNumber = 23;
+    }
+    //= == == == == == == == == == == xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    delay (10);
+    ldrstatus22 = digitalRead (ldrPin22);
+    if (ldrstatus22 == 1) {
+      numberForPython = loc_22;
+      megaInputNumber = 22;
+    }
+    //= == == == == == == == == == == == == == == == == == == == == == =
+    delay (500);
+    digitalWrite (puffPin, LOW);  //turn on
+    delay (200);                 //  just for a moment
+    digitalWrite (puffPin, HIGH);  //then turn back off
+    /*
+      relayPin is 8
+      puffPin is 9
+
+    */
+    delay(1000);
+    digitalWrite(relayPin, HIGH);    //turn off the laser
+    Serial.println (numberForPython); // send only this to Python
+
+    now_time = millis();
+    delay (100);
+    //Serial.println (now_time); //this will also go out to Python;  could be useful
+
+    old_time = (now_time + 1800000);//  30000 would be 30 seconds.  this establishes t
+    //Serial.println (megaInputNumber);//the python seems to want the println
+
+  }
+  delay (100);
+
+  now_time = millis();  //this is the time stamp in milliseconds----  1000 per second
+}
